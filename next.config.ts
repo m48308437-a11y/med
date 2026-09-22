@@ -1,4 +1,3 @@
-
 // GitHub Pages static export support
 const isGithubPages = process.env.GITHUB_ACTIONS === 'true';
 const repoName = process.env.GITHUB_REPOSITORY
@@ -6,7 +5,7 @@ const repoName = process.env.GITHUB_REPOSITORY
   : '';
 
 const nextConfig = {
-  output: 'export',
+  ...(isGithubPages ? { output: 'export' } : {}),
   trailingSlash: true,
   images: {
     unoptimized: true,
